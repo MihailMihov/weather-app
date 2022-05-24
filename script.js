@@ -70,6 +70,7 @@ const WEATHER = new Weather();
 const GEOLOCATION = new Geolocation();
 
 window.onload = () => {
+    const searchBarElement = document.getElementById("searchbar");
     const searchButton = document.getElementById("search");
     const currentLocationButton = document.getElementById("current-location");
     const weatherIcon = document.getElementById("weather-image");
