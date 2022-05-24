@@ -84,3 +84,10 @@ body {
 #info-wrapper {
     display: none;
 }
+
+#units-checkbox-container {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    color: white;
+}

@@ -75,6 +75,7 @@ window.onload = () => {
     const humidityElement = document.getElementById("humidity");
     const feelsLikeElement = document.getElementById("feels-like");
     const infoWrapper = document.getElementById("info-wrapper");
+    const unitsCheckbox = document.getElementById("units-checkbox");
     
     searchButton.addEventListener("click", async () => {
         const cityQueryText = document.getElementById("searchbar").value;
@@ -102,6 +103,12 @@ window.onload = () => {
         
 
     });
+
+    unitsCheckbox.addEventListener("change", () => {
+        WEATHER.units = unitsCheckbox.checked ? "IMPERIAL" : "METRIC";
+        
+        syncWeather();
+    })
 
     function syncWeather() {
         if (infoWrapper.hasAttribute("id")) {
