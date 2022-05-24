@@ -1,3 +1,5 @@
+'use strict';
+
 const API_KEY = "d4cbbf5ab2a7e513566740bf5e303e12";
 const LIMIT_LOCATIONS = 1;
 
