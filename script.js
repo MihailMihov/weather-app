@@ -74,6 +74,7 @@ window.onload = () => {
     const tempElement = document.getElementById("temp");
     const humidityElement = document.getElementById("humidity");
     const feelsLikeElement = document.getElementById("feels-like");
+    const infoWrapper = document.getElementById("info-wrapper");
     
     searchButton.addEventListener("click", async () => {
         const cityQueryText = document.getElementById("searchbar").value;
@@ -103,6 +104,10 @@ window.onload = () => {
     });
 
     function syncWeather() {
+        if (infoWrapper.hasAttribute("id")) {
+            infoWrapper.removeAttribute("id");
+        }
+
         const unitSymbol = getUnitSymbol(WEATHER.units);
 
         tempElement.innerHTML = WEATHER.getTemp() + unitSymbol;

@@ -80,3 +80,7 @@ body {
 .invisible {
     display: none;
 }
+
+#info-wrapper {
+    display: none;
+}
