@@ -96,7 +96,7 @@ window.onload = () => {
                 const city = GEOLOCATION.city;
                 document.getElementById("searchbar").value = city;
             }, (error) => {
-                console.warn(`GEOLOCATION ERROR(${err.code}): ${err.message}`);
+                console.warn(`GEOLOCATION ERROR(${error.code}): ${error.message}`);
             });
         } else {
             /* geolocation IS NOT available */
