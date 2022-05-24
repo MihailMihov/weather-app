@@ -49,7 +49,7 @@ class Geolocation {
         // https://openweathermap.org/api/geocoding-api
         const query = `http://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}&limit=${LIMIT_LOCATIONS}&appid=${API_KEY}`;
         const response = await (await fetch(query)).json();
-        this.city = response[0].name;
+        this.city = response[0].local_names.bg;
     }
 
     async setByCity(city) {
@@ -89,6 +89,8 @@ window.onload = () => {
             /* geolocation is available */
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GEOLOCATION.setByCoords(position.coords);
+                const city = GEOLOCATION.city;
+                document.getElementById("searchbar").value = city;
             }, (error) => {
                 console.warn(`GEOLOCATION ERROR(${err.code}): ${err.message}`);
             });
@@ -106,7 +108,7 @@ window.onload = () => {
         tempElement.innerHTML = WEATHER.getTemp() + unitSymbol;
         feelsLikeElement.innerHTML= WEATHER.getFeelsLikeTemp() + unitSymbol;
         humidityElement.innerHTML = WEATHER.humidity + "%";
-        weatherIcon.src = `http://openweathermap.org/img/w/${WEATHER.icon}.png`
+        weatherIcon.src = `http://openweathermap.org/img/wn/${WEATHER.icon}@2x.png`
     }
 };
 
