@@ -80,8 +80,7 @@ window.onload = () => {
     const unitsCheckbox = document.getElementById("units-checkbox");
     
     searchButton.addEventListener("click", async () => {
-        const cityQueryText = document.getElementById("searchbar").value;
-        await GEOLOCATION.setByCity(cityQueryText);
+        await GEOLOCATION.setByCity(searchBarElement.value);
 
         await WEATHER.getTempByGeolocation(GEOLOCATION);
 
@@ -93,8 +92,8 @@ window.onload = () => {
             /* geolocation is available */
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GEOLOCATION.setByCoords(position.coords);
-                const city = GEOLOCATION.city;
-                document.getElementById("searchbar").value = city;
+                searchBarElement.value = GEOLOCATION.city;
+                console.log(position.coords)
             }, (error) => {
                 console.warn(`GEOLOCATION ERROR(${error.code}): ${error.message}`);
             });
