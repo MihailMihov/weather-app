@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: linear-gradient(40deg, rgb(173, 240, 250) 0%, rgba(0, 212, 255, 1) 81%, rgb(0, 213, 255) 100%) no-repeat;
+    background: linear-gradient(to right bottom, white, lightskyblue 30%, deepskyblue) no-repeat;
     font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 }
 
