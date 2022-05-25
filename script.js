@@ -23,7 +23,7 @@ class Weather {
         return Math.round(convertTempFromKelvin(this.feelsLikeTemp, this.units));
     }
 
-    async getTempByGeolocation(geolocation) {
+    async setWeatherByGeolocation(geolocation) {
         // OpenWeatherMap Current Weather API
         // https://openweathermap.org/current
         const query = `https://api.openweathermap.org/data/2.5/weather?lat=${geolocation.lat}&lon=${geolocation.lon}` + API_OPTIONS;
@@ -85,7 +85,7 @@ window.onload = () => {
     searchButton.addEventListener("click", async () => {
         await GEOLOCATION.setByCity(searchBarElement.value);
 
-        await WEATHER.getTempByGeolocation(GEOLOCATION);
+        await WEATHER.setWeatherByGeolocation(GEOLOCATION);
 
         syncWeather();
     });
