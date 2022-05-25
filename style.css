@@ -74,10 +74,6 @@ body {
     background-color: rgb(227, 227, 227);
 }
 
-.invisible {
-    display: none;
-}
-
 #info-wrapper {
     display: none;
 }
