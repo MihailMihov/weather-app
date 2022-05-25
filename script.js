@@ -122,7 +122,7 @@ window.onload = () => {
         tempElement.innerHTML = WEATHER.getTemp() + unitSymbol;
         feelsLikeElement.innerHTML= WEATHER.getFeelsLikeTemp() + unitSymbol;
         humidityElement.innerHTML = WEATHER.humidity + "%";
-        weatherIcon.src = `http://openweathermap.org/img/wn/${WEATHER.icon}@2x.png`
+        weatherIcon.src = `https://openweathermap.org/img/wn/${WEATHER.icon}@2x.png`
     }
 };
 
