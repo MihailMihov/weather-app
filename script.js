@@ -51,7 +51,7 @@ class Geolocation {
 
         // OpenWeatherMap Reverse Geocoding API
         // https://openweathermap.org/api/geocoding-api
-        const query = `http://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}` + API_OPTIONS;
+        const query = `https://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
         this.city = response[0]["local_names"][API_LOCALIZATION];
     }
@@ -61,7 +61,7 @@ class Geolocation {
 
         // OpenWeatherMap Direct Geocoding API
         // https://openweathermap.org/api/geocoding-api
-        const query = `http://api.openweathermap.org/geo/1.0/direct?q=${this.city}` + API_OPTIONS;
+        const query = `https://api.openweathermap.org/geo/1.0/direct?q=${this.city}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
         this.lat = response[0]["lat"];
         this.lon = response[0]["lon"];
