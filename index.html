@@ -16,7 +16,7 @@
                     <label for="units-checkbox">Фаренхайт</label>
                 </div>
                 <div class="image-container">
-                    <img src="http://openweathermap.org/img/wn/03d@2x.png" id="weather-image">
+                    <img src="https://openweathermap.org/img/wn/03d@2x.png" id="weather-image" alt="Current weather icon">
                 </div>
                 <div class="info-container">
                     <span id="temp"></span>
@@ -30,7 +30,9 @@
                 </div>
             </div>
             <div class="searchbar-container">
-                <input type="searchbox" id="searchbar" placeholder="Име на град">
+                <label> Град:
+                    <input type="search" id="searchbar" placeholder="София">
+                </label>
                 <button id="current-location" class="button">Сегашно местоположение</button>
                 <button id="search" class="button">Търси</button>
             </div>

@@ -1,5 +1,9 @@
+'use strict';
+
 const API_KEY = "d4cbbf5ab2a7e513566740bf5e303e12";
-const LIMIT_LOCATIONS = 1;
+const API_LOCALIZATION = "bg";
+const API_LOCATION_LIMIT = 1
+const API_OPTIONS = `&appid=${API_KEY}&lang=${API_LOCALIZATION}&limit=${API_LOCATION_LIMIT}`;
 
 class Weather {
     constructor(tempK, humidity, feelsLikeTemp, weather, icon, units) {
@@ -22,14 +26,14 @@ class Weather {
     async getTempByGeolocation(geolocation) {
         // OpenWeatherMap Current Weather API
         // https://openweathermap.org/current
-        const query = `https://api.openweathermap.org/data/2.5/weather?lat=${geolocation.lat}&lon=${geolocation.lon}&limit=${LIMIT_LOCATIONS}&appid=${API_KEY}`;
+        const query = `https://api.openweathermap.org/data/2.5/weather?lat=${geolocation.lat}&lon=${geolocation.lon}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
 
-        this.tempK = response.main.temp;
-        this.feelsLikeTemp = response.main.feels_like;
-        this.humidity = response.main.humidity;
-        this.icon = response.weather[0].icon;
-        this.weather = response.weather[0].main;
+        this.tempK = response["main"]["temp"];
+        this.feelsLikeTemp = response["main"]["feels_like"];
+        this.humidity = response["main"]["humidity"];
+        this.icon = response["weather"][0]["icon"];
+        this.weather = response["weather"][0]["main"];
         this.units = "METRIC";
     }
 }
@@ -47,9 +51,9 @@ class Geolocation {
 
         // OpenWeatherMap Reverse Geocoding API
         // https://openweathermap.org/api/geocoding-api
-        const query = `http://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}&limit=${LIMIT_LOCATIONS}&appid=${API_KEY}`;
+        const query = `https://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
-        this.city = response[0].local_names.bg;
+        this.city = response[0]["local_names"][API_LOCALIZATION];
     }
 
     async setByCity(city) {
@@ -57,10 +61,10 @@ class Geolocation {
 
         // OpenWeatherMap Direct Geocoding API
         // https://openweathermap.org/api/geocoding-api
-        const query = `http://api.openweathermap.org/geo/1.0/direct?q=${this.city}&appid=${API_KEY}&limit=${LIMIT_LOCATIONS}`;
+        const query = `https://api.openweathermap.org/geo/1.0/direct?q=${this.city}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
-        this.lat = response[0].lat;
-        this.lon = response[0].lon;
+        this.lat = response[0]["lat"];
+        this.lon = response[0]["lon"];
     }
 }
 
@@ -68,6 +72,7 @@ const WEATHER = new Weather();
 const GEOLOCATION = new Geolocation();
 
 window.onload = () => {
+    const searchBarElement = document.getElementById("searchbar");
     const searchButton = document.getElementById("search");
     const currentLocationButton = document.getElementById("current-location");
     const weatherIcon = document.getElementById("weather-image");
@@ -78,8 +83,7 @@ window.onload = () => {
     const unitsCheckbox = document.getElementById("units-checkbox");
     
     searchButton.addEventListener("click", async () => {
-        const cityQueryText = document.getElementById("searchbar").value;
-        await GEOLOCATION.setByCity(cityQueryText);
+        await GEOLOCATION.setByCity(searchBarElement.value);
 
         await WEATHER.getTempByGeolocation(GEOLOCATION);
 
@@ -91,10 +95,9 @@ window.onload = () => {
             /* geolocation is available */
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GEOLOCATION.setByCoords(position.coords);
-                const city = GEOLOCATION.city;
-                document.getElementById("searchbar").value = city;
+                searchBarElement.value = GEOLOCATION.city;
             }, (error) => {
-                console.warn(`GEOLOCATION ERROR(${err.code}): ${err.message}`);
+                console.warn(`GEOLOCATION ERROR(${error.code}): ${error.message}`);
             });
         } else {
             /* geolocation IS NOT available */
@@ -120,7 +123,7 @@ window.onload = () => {
         tempElement.innerHTML = WEATHER.getTemp() + unitSymbol;
         feelsLikeElement.innerHTML= WEATHER.getFeelsLikeTemp() + unitSymbol;
         humidityElement.innerHTML = WEATHER.humidity + "%";
-        weatherIcon.src = `http://openweathermap.org/img/wn/${WEATHER.icon}@2x.png`
+        weatherIcon.src = `https://openweathermap.org/img/wn/${WEATHER.icon}@2x.png`
     }
 };
 
