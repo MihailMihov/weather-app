@@ -29,11 +29,11 @@ class Weather {
         const query = `https://api.openweathermap.org/data/2.5/weather?lat=${geolocation.lat}&lon=${geolocation.lon}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
 
-        this.tempK = response.main.temp;
-        this.feelsLikeTemp = response.main.feels_like;
-        this.humidity = response.main.humidity;
-        this.icon = response.weather[0].icon;
-        this.weather = response.weather[0].main;
+        this.tempK = response["main"]["temp"];
+        this.feelsLikeTemp = response["main"]["feels_like"];
+        this.humidity = response["main"]["humidity"];
+        this.icon = response["weather"][0]["icon"];
+        this.weather = response["weather"][0]["main"];
         this.units = "METRIC";
     }
 }
@@ -53,8 +53,7 @@ class Geolocation {
         // https://openweathermap.org/api/geocoding-api
         const query = `http://api.openweathermap.org/geo/1.0/reverse?lat=${this.lat}&lon=${this.lon}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
-        // Workaround for localizing geolocation API
-        this.city = response[0].local_names[API_LOCALIZATION];
+        this.city = response[0]["local_names"][API_LOCALIZATION];
     }
 
     async setByCity(city) {
@@ -64,8 +63,8 @@ class Geolocation {
         // https://openweathermap.org/api/geocoding-api
         const query = `http://api.openweathermap.org/geo/1.0/direct?q=${this.city}` + API_OPTIONS;
         const response = await (await fetch(query)).json();
-        this.lat = response[0].lat;
-        this.lon = response[0].lon;
+        this.lat = response[0]["lat"];
+        this.lon = response[0]["lon"];
     }
 }
 
