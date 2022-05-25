@@ -96,7 +96,6 @@ window.onload = () => {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GEOLOCATION.setByCoords(position.coords);
                 searchBarElement.value = GEOLOCATION.city;
-                console.log(position.coords)
             }, (error) => {
                 console.warn(`GEOLOCATION ERROR(${error.code}): ${error.message}`);
             });
