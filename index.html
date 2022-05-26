@@ -1,38 +1,92 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="searchbar-style.css">
+        <link rel="stylesheet" href="info-style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <script src="script.js"></script>
-        <title>Времето</title>
+        <title>Weather App</title>
     </head>
     <body>
         <div class="main-container">
-            <div id="info-wrapper">
-                <div id="units-checkbox-container">
-                    <input type="checkbox" id="units-checkbox" name="units-checkbox">
-                    <label for="units-checkbox">Фаренхайт</label>
+            <div class="search-container">
+                <button id="search-button" class="button"><img src="/assets/search.svg" alt="Press to search" id="search-icon"/></button>
+                <input type="search" id="searchbar" placeholder="Search"> 
+                <button id="current-location"><img src="/assets/location.svg" alt="Select current location" id="location-icon"/></button>
+            </div>
+            <div class="info-container">
+                <h1 id="city-name">London</h1>
+                <div class="main-info-container">
+                    <img id="icon-main" src="http://openweathermap.org/img/wn/02d@4x.png">
+                    <span id="temp-main">21°</span>
+                    <div class="unit-selector">
+                        <button id="celsius-button" class="unit-button">C</button>
+                        <button id="farenheit-button" class="unit-button">F</button>
+                    </div>
                 </div>
-                <div class="image-container">
-                    <img src="https://openweathermap.org/img/wn/03d@2x.png" id="weather-image" alt="Current weather icon">
-                </div>
-                <div class="info-container">
-                    <span id="temp"></span>
-                    <p class="bonus-info">
-                        <span>Чувства се като </span>
-                        <span id="feels-like"></span>
-                        <br/>
-                        <span id="humidity"></span>
-                        <span> влага</span>
-                    </p>
+                <h2 id="weather-type">Few Clouds</h2>
+                <div class="secondary-info-container">
+                    <div class="secondary-info"><span class="secondary-name">Cloudy</span><span class="secondary-value" id="cloudiness-value">18%</span></div>
+                    <div class="secondary-info"><span class="secondary-name">Rain</span><span class="secondary-value" id="rain-value">18%</span></div>
+                    <div class="secondary-info"><span class="secondary-name">Humidity</span><span class="secondary-value" id="humidity-value">18%</span></div>
                 </div>
             </div>
-            <div class="searchbar-container">
-                <input type="search" id="searchbar" placeholder="Град">
-                <button id="current-location" class="button">Сегашно местоположение</button>
-                <button id="search" class="button">Търси</button>
+            <div class="daily-forecast">
+                <h2 class="daily-forecast-title">Daily</h2>
+                <div class="days-container">
+                    <ul>
+                        <li class="forecast">
+                            <p id="date-1">Mon 16</p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-1">
+                            <p id="forecast-name-1">Few clouds</p>
+                            <div id="forecast-temps-1">
+                                <p id="forecast-max-temp-1">21°</p>
+                                <p id="forecast-min-temp-1">14°</p>
+                            </div>
+                        </li>
+                        <li class="forecast">
+                            <p id="date-2">Mon 16</p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-2">
+                            <p id="forecast-name-2">Few clouds</p>
+                            <div id="forecast-temps-2">
+                                <p id="forecast-max-temp-2">21°</p>
+                                <p id="forecast-min-temp-2">14°</p>
+                            </div>
+                        </li>
+                        <li class="forecast">
+                            <p id="date-3">Mon 16</p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-3">
+                            <p id="forecast-name-3">Few clouds</p>
+                            <div id="forecast-temps-3">
+                                <p id="forecast-max-temp-3">21°</p>
+                                <p id="forecast-min-temp-3">14°</p>
+                            </div>
+                        </li>
+                        <li class="forecast">
+                            <p id="date-4">Mon 16</p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-4">
+                            <p id="forecast-name-4">Few clouds</p>
+                            <div id="forecast-temps-4">
+                                <p id="forecast-max-temp-4">21°</p>
+                                <p id="forecast-min-temp-4">14°</p>
+                            </div>
+                        </li>
+                        <li class="forecast">
+                            <p id="date-5">Mon 16</p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-5">
+                            <p id="forecast-name-5">Few clouds</p>
+                            <div id="forecast-temps-5">
+                                <p id="forecast-max-temp-5">21°</p>
+                                <p id="forecast-min-temp-5">14°</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>

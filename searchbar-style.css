@@ -1,0 +1,64 @@
+body * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {  
+    background-image: url("assets/tom-barrett-hgGplX3PFBg-unsplash.jpg");
+    background-size: cover;
+}
+
+.search-container {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    --searchbar-height: 2.5rem;
+    margin-top: 1rem;
+}
+
+#search-button {
+    height: var(--searchbar-height);
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    place-items: center;
+    border-radius: 66px 0px 0px 66px;
+    margin-left: 1.5rem;
+}
+
+#search-icon {
+    height: 23px;
+    width: 23px;
+}
+
+#searchbar {
+    height: var(--searchbar-height);
+    width: 15rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    padding-left: 10px;
+    line-height: 27px;
+}
+
+#searchbar::placeholder {
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#current-location {
+    height: var(--searchbar-height);
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    place-items: center;
+    border-radius: 0px 66px 66px 0px;
+}
+
+#location-icon {
+    height: 23px;
+    width: 23px;
+}
