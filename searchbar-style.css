@@ -1,5 +1,5 @@
 html {
-    font-size: 12px;
+    font-size: 8px;
 }
 
 body * {
@@ -18,7 +18,7 @@ body {
     height: 3rem;
     display: flex;
     align-items: center;
-    --searchbar-height: 2.5rem;
+    --searchbar-height: 4rem;
     margin-top: 3vh;
 }
 
@@ -29,13 +29,13 @@ body {
     cursor: pointer;
     display: flex;
     place-items: center;
-    border-radius: 66px 0px 0px 66px;
+    border-radius: 66px 0 0 66px;
     margin-left: 3vw;
 }
 
 #search-icon {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.6rem;
+    width: 1.6rem;
 }
 
 #searchbar {
@@ -44,12 +44,16 @@ body {
     background-color: rgba(0, 0, 0, 0.25);
     border: none;
     padding-left: 10px;
-    line-height: 1.7rem;
+    line-height: 4rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #searchbar::placeholder {
     font-weight: 300;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.7);
 }
@@ -61,12 +65,12 @@ body {
     cursor: pointer;
     display: flex;
     place-items: center;
-    border-radius: 0px 66px 66px 0px;
+    border-radius: 0 66px 66px 0;
 }
 
 #location-icon {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.6rem;
+    width: 1.6rem;
 }
 
 @media only screen and (max-width: 480px) {
