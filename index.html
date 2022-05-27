@@ -25,8 +25,10 @@
                     <img id="icon-main" src="http://openweathermap.org/img/wn/02d@4x.png">
                     <span id="temp-main">21°</span>
                     <div class="unit-selector">
-                        <button id="celsius-button" class="unit-button">C</button>
-                        <button id="farenheit-button" class="unit-button">F</button>
+                        <input type="radio" name="unit-radio-group" id="celsius-button" class="unit-button"></input>
+                        <label for="celsius-button" class="unit-label">C</label>
+                        <input type="radio" name="unit-radio-group" id="farenheit-button" class="unit-button"></input>
+                        <label for="farenheit-button" class="unit-label">F</label>
                     </div>
                 </div>
                 <h2 id="weather-type">Few Clouds</h2>
