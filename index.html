@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="searchbar-style.css">
         <link rel="stylesheet" href="info-style.css">
+        <link rel="stylesheet" href="forecast.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -40,55 +41,53 @@
             </div>
             <div class="daily-forecast">
                 <h2 class="daily-forecast-title">Daily</h2>
-                <div class="days-container">
-                    <ul>
-                        <li class="forecast">
-                            <p id="date-1">Mon 16</p>
-                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-1">
-                            <p id="forecast-name-1">Few clouds</p>
-                            <div id="forecast-temps-1">
-                                <p id="forecast-max-temp-1">21°</p>
-                                <p id="forecast-min-temp-1">14°</p>
-                            </div>
-                        </li>
-                        <li class="forecast">
-                            <p id="date-2">Mon 16</p>
-                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-2">
-                            <p id="forecast-name-2">Few clouds</p>
-                            <div id="forecast-temps-2">
-                                <p id="forecast-max-temp-2">21°</p>
-                                <p id="forecast-min-temp-2">14°</p>
-                            </div>
-                        </li>
-                        <li class="forecast">
-                            <p id="date-3">Mon 16</p>
-                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-3">
-                            <p id="forecast-name-3">Few clouds</p>
-                            <div id="forecast-temps-3">
-                                <p id="forecast-max-temp-3">21°</p>
-                                <p id="forecast-min-temp-3">14°</p>
-                            </div>
-                        </li>
-                        <li class="forecast">
-                            <p id="date-4">Mon 16</p>
-                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-4">
-                            <p id="forecast-name-4">Few clouds</p>
-                            <div id="forecast-temps-4">
-                                <p id="forecast-max-temp-4">21°</p>
-                                <p id="forecast-min-temp-4">14°</p>
-                            </div>
-                        </li>
-                        <li class="forecast">
-                            <p id="date-5">Mon 16</p>
-                            <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-5">
-                            <p id="forecast-name-5">Few clouds</p>
-                            <div id="forecast-temps-5">
-                                <p id="forecast-max-temp-5">21°</p>
-                                <p id="forecast-min-temp-5">14°</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="days-container">
+                    <li class="forecast" selected>
+                        <p id="date-1" class="date">Mon 16</p>
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-1" class="forecast-icon">
+                        <p id="forecast-weather-1" class="forecast-weather">Few clouds</p>
+                        <div class="forecast-temps">
+                            <span id="forecast-max-temp-1" class="forecast-max-temp">21°</span>
+                            <span id="forecast-min-temp-1" class="forecast-min-temp">14°</span>
+                        </div>
+                    </li>
+                    <li class="forecast">
+                        <p id="date-2" class="date">Mon 16</p>
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-2" class="forecast-icon">
+                        <p id="forecast-weather-2" class="forecast-weather">Few clouds</p>
+                        <div class="forecast-temps">
+                            <span id="forecast-max-temp-2" class="forecast-max-temp">21°</span>
+                            <span id="forecast-min-temp-2" class="forecast-min-temp">14°</span>
+                        </div>
+                    </li>
+                    <li class="forecast">
+                        <p id="date-3" class="date">Mon 16</p>
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-3" class="forecast-icon">
+                        <p id="forecast-weather-3" class="forecast-weather">Few clouds</p>
+                        <div class="forecast-temps">
+                            <span id="forecast-max-temp-3" class="forecast-max-temp">21°</span>
+                            <span id="forecast-min-temp-3" class="forecast-min-temp">14°</span>
+                        </div>
+                    </li>
+                    <li class="forecast">
+                        <p id="date-4" class="date">Mon 16</p>
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-4" class="forecast-icon">
+                        <p id="forecast-weather-4" class="forecast-weather">Few clouds</p>
+                        <div class="forecast-temps">
+                            <span id="forecast-max-temp-4" class="forecast-max-temp">21°</span>
+                            <span id="forecast-min-temp-4" class="forecast-min-temp">14°</span>
+                        </div>
+                    </li>
+                    <li class="forecast">
+                        <p id="date-5" class="date">Mon 16</p>
+                        <img src="http://openweathermap.org/img/wn/02d@2x.png" id="forecast-icon-5" class="forecast-icon">
+                        <p id="forecast-weather-5" class="forecast-weather">Few clouds</p>
+                        <div class="forecast-temps">
+                            <span id="forecast-max-temp-5" class="forecast-max-temp">21°</span>
+                            <span id="forecast-min-temp-5" class="forecast-min-temp">14°</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </body>

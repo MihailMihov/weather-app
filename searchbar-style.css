@@ -1,3 +1,7 @@
+html {
+    font-size: 12px;
+}
+
 body * {
     font-family: 'Open Sans', sans-serif;
 }
@@ -5,6 +9,8 @@ body * {
 body {  
     background-image: url("assets/tom-barrett-hgGplX3PFBg-unsplash.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .search-container {
@@ -13,7 +19,7 @@ body {
     display: flex;
     align-items: center;
     --searchbar-height: 2.5rem;
-    margin-top: 1rem;
+    margin-top: 3vh;
 }
 
 #search-button {
@@ -24,26 +30,26 @@ body {
     display: flex;
     place-items: center;
     border-radius: 66px 0px 0px 66px;
-    margin-left: 1.5rem;
+    margin-left: 3vw;
 }
 
 #search-icon {
-    height: 23px;
-    width: 23px;
+    height: 1.4rem;
+    width: 1.4rem;
 }
 
 #searchbar {
     height: var(--searchbar-height);
-    width: 15rem;
+    width: 18rem;
     background-color: rgba(0, 0, 0, 0.25);
     border: none;
     padding-left: 10px;
-    line-height: 27px;
+    line-height: 1.7rem;
 }
 
 #searchbar::placeholder {
     font-weight: 300;
-    font-size: 20px;
+    font-size: 1.25rem;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.7);
 }
@@ -59,6 +65,12 @@ body {
 }
 
 #location-icon {
-    height: 23px;
-    width: 23px;
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+@media only screen and (max-width: 480px) {
+    .search-container {
+        justify-content: center;
+    }
 }

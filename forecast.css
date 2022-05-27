@@ -1,0 +1,123 @@
+.daily-forecast {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: 7rem 15rem 2rem 15rem;
+}
+
+.daily-forecast-title {
+    width: 100%;
+    text-align: start;
+    font-weight: 300;
+    font-size: 2.25rem;
+    line-height: 145.68%;
+    letter-spacing: 0.065em;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+.days-container {
+    display: flex;
+    width: 100%;
+    padding: 0;
+}
+
+.forecast:nth-child(1) {
+    margin-left: 0;
+}
+
+.forecast:nth-child(5) {
+    margin-right: 0;
+}
+
+.forecast {
+    list-style-type: none;
+    width: 20%;
+    margin: 0 4rem 0 4rem;
+    padding: 2.2rem 2rem 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.forecast[selected] {
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 10px 28px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+}
+
+.date {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 135%;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.forecast-icon {
+    width: 11rem;
+}
+
+.forecast-weather {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 137.5%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-top: -20px;
+}
+
+.forecast-temps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+}
+
+.forecast-max-temp {
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: 135%;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.forecast-min-temp {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 137.5%;
+    color: #FFFFFF;
+    opacity: 70%;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1500px) {
+    .daily-forecast {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .days-container {
+        flex-direction: column;
+        place-items: center;
+    }
+
+    .forecast {
+        width: 50%;
+    }
+
+    .daily-forecast-title {
+        text-align: center;
+    }
+
+    .forecast:nth-child(1) {
+        margin-left: 4rem;
+    }
+    
+    .forecast:nth-child(5) {
+        margin-right: 4rem;
+    }
+}
