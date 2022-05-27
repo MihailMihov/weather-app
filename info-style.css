@@ -51,6 +51,7 @@
     text-align: center;
     color: #FFFFFF;
     opacity: 60%;
+    cursor: pointer;
 }
 
 .unit-button:checked + .unit-label {
