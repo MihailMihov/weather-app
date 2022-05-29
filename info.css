@@ -1,8 +1,8 @@
 .info-container {
-    width: 100%;
     display: flex;
     place-content: center;
     flex-direction: column;
+    flex-grow: 1
 }
 
 #city-name {
@@ -73,10 +73,13 @@
 }
 
 .secondary-info-container {
-    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 3rem;
+}
+
+.secondary-info {
+    margin: 0 5vw;
 }
 
 .secondary-name {

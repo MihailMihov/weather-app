@@ -1,24 +1,5 @@
-html {
-    font-size: 8px;
-}
-
-body * {
-    font-family: 'Open Sans', sans-serif;
-    user-select: none;
-}
-
-body {  
-    background-image: url("assets/tom-barrett-hgGplX3PFBg-unsplash.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .search-container {
-    width: 100%;
-    height: 3rem;
     display: flex;
-    align-items: center;
     --searchbar-height: 4rem;
     margin-top: 3vh;
 }
@@ -77,17 +58,5 @@ body {
 @media only screen and (max-width: 480px) {
     .search-container {
         justify-content: center;
-    }
-}
-
-@media only screen and (min-width: 2000px) {
-    html {
-        font-size: 12px;
-    }
-}
-
-@media only screen and (min-width: 2600px) {
-    html {
-        font-size: 14px;
     }
 }

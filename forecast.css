@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     place-items: center;
-    padding: 7rem 15rem 2rem 15rem;
+    padding: 7rem 15rem 12rem 15rem;
 }
 
 .daily-forecast-title {
@@ -13,7 +13,6 @@
     line-height: 145.68%;
     letter-spacing: 0.065em;
     color: #FFFFFF;
-    margin-bottom: 0;
 }
 
 .days-container {
@@ -93,12 +92,6 @@
     color: #FFFFFF;
     opacity: 70%;
     margin: 0;
-}
-
-@media only screen and (max-width: 1500px) {
-    .daily-forecast {
-        padding: 0;
-    }
 }
 
 @media only screen and (max-width: 790px) {
