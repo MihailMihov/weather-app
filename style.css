@@ -1,0 +1,24 @@
+html {
+    font-size: 8px;
+    height: 100%;
+}
+
+body * {
+    font-family: 'Open Sans', sans-serif;
+    user-select: none;
+}
+
+body {
+    background-image: url("assets/tom-barrett-hgGplX3PFBg-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
