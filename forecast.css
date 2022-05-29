@@ -95,12 +95,6 @@
     margin: 0;
 }
 
-@media only screen and (max-width: 1500px) {
-    .daily-forecast {
-        padding: 0;
-    }
-}
-
 @media only screen and (max-width: 790px) {
     .days-container {
         flex-direction: column;
