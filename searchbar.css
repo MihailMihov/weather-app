@@ -1,6 +1,5 @@
 .search-container {
     display: flex;
-    align-items: center;
     --searchbar-height: 4rem;
     margin-top: 3vh;
 }
