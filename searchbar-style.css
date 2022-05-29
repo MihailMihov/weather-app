@@ -79,15 +79,3 @@ body {
         justify-content: center;
     }
 }
-
-@media only screen and (min-width: 2000px) {
-    html {
-        font-size: 12px;
-    }
-}
-
-@media only screen and (min-width: 2600px) {
-    html {
-        font-size: 14px;
-    }
-}
