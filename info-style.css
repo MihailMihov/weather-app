@@ -75,8 +75,12 @@
 .secondary-info-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 3rem;
+}
+
+.secondary-info {
+    margin: 0 10rem;
 }
 
 .secondary-name {
