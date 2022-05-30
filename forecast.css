@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     place-items: center;
-    padding: 7rem 15rem 12rem 15rem;
+    padding: 7rem max(17rem, 10%) 12rem max(17rem, 10%);
 }
 
 .daily-forecast-title {
@@ -39,6 +39,8 @@
     place-items: center;
     cursor: pointer;
     transition: all 0.1s linear;
+    aspect-ratio: 250 / 266;
+    justify-content: space-around;
 }
 
 .forecast[selected], .forecast:hover {
@@ -94,14 +96,20 @@
     margin: 0;
 }
 
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 1100px) {
+    .daily-forecast {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
     .days-container {
         flex-direction: column;
         place-items: center;
     }
 
     .forecast {
-        width: 50%;
+        width: 30%;
+        max-width: 40%;
     }
 
     .daily-forecast-title {
@@ -114,5 +122,19 @@
     
     .forecast:last-child {
         margin-right: 4rem;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .forecast {
+        width: 70%;
+        max-width: none;
+    }
+}
+
+@media only screen and (max-height: 900px) {
+    .daily-forecast {
+        padding-bottom: 4rem;
+        padding-top: 4rem;
     }
 }
