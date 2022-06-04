@@ -1,6 +1,6 @@
 'use strict';
 
-const API_URL = "";
+const API_URL = "https://weather-api-py.herokuapp.com/weather";
 
 window.onload = async () => {
     const searchBarElement = document.getElementById("searchbar");
@@ -40,28 +40,20 @@ window.onload = async () => {
         });
     }
 
-    searchButton.addEventListener("click", async () => {
+    searchButton.addEventListener("click", () => {
         setWeatherByCity(searchBarElement.value);
     });
 
-    currentLocationButton.addEventListener("click", async () => {
+    currentLocationButton.addEventListener("click", () => {
         getCoords().then((position) => {
             setWeatherByCoords(position);
         })    
     });
 
-    celsiusButton.addEventListener("click", () => {
-        units = "METRIC";
-        setWeather(weather);
-    });
-
-    fahrenheitButton.addEventListener("click", () => {
-        units = "IMPERIAL";
-        setWeather(weather);
-    });
-
     async function setWeatherByCity(city) {
-        const json = await (await fetch(`${API_URL}/combined?city=${city}`)).json();
+        const json = await (await fetch(`${API_URL}?city=${city}`)).json();
+
+        json.current.other.rain = json.forecast[0].other.rain;
 
         setWeather(json);
     }
@@ -70,9 +62,9 @@ window.onload = async () => {
         const lon = position.coords.longitude;
         const lat = position.coords.latitude;
 
-        const json = await (await fetch(`${API_URL}/combined?lat=${lat}&lon=${lon}`)).json();
+        const json = await (await fetch(`${API_URL}?lat=${lat}&lon=${lon}`)).json();
 
-        console.log(json);
+        json.current.other.rain = json.forecast[0].other.rain;
 
         setWeather(json);
     }
@@ -80,16 +72,16 @@ window.onload = async () => {
     async function setWeather(json) {
         weather = json;
 
-        cityName.innerText = json.name;
-        if (selectedDay != 0) {
-            const selectedDayForecast = json.future[selectedDay];
+        cityName.innerText = json.city.name;
+        if (selectedDay !== 0) {
+            const selectedDayForecast = json.forecast[selectedDay];
             setDayInfo(selectedDayForecast, false);
         } else {
-            setDayInfo(json, true);
+            setDayInfo(json.current, true);
         }
 
         for (let i = 0; i < 5; i++) {
-            const forecast = json.future[i];
+            const forecast = json.forecast[i];
 
             const forecastElement = dailyForecast[i];
 
@@ -102,24 +94,43 @@ window.onload = async () => {
             const currentDate = new Date();
             currentDate.setDate(currentDate.getDate() + i);
             const dateOptions = {weekday: 'short', day: 'numeric'};
-            const dateString = currentDate.toLocaleString("en-UK", dateOptions);
 
-            forecastDate.innerText = dateString;
-            forecastIcon.src = forecast.status.icon + "2x.png";
-            forecastWeather.innerText = forecast.status.description;
+            forecastDate.innerText = currentDate.toLocaleString("en-UK", dateOptions);
+            forecastIcon.src = `https://openweathermap.org/img/wn/${forecast.status.icon}@2x.png`;
+            forecastWeather.innerText = capitalizeFirstLetter(forecast.status.description);
             forecastDayTemp.innerText = convertTempFromKelvin(forecast.day.temp, units) + "°";
             forecastNightTemp.innerText = convertTempFromKelvin(forecast.night.temp, units) + "°";
         }
     }
 
+    function selectDay(index) {
+        selectedDay = index;
+
+        if (index === 0) {
+            setDayInfo(weather.current, true);
+        } else {
+            setDayInfo(weather.forecast[index], false);
+        }
+    }
+
     function setDayInfo(json, isCurrent = true) {
-        weatherIconMain.src = json.status.icon + "4x.png";
-        weatherTypeMain.innerText = json.status.description;
+        weatherIconMain.src = `https://openweathermap.org/img/wn/${json.status.icon}@4x.png`;
+        weatherTypeMain.innerText = capitalizeFirstLetter(json.status.description);
         tempMain.innerText = convertTempFromKelvin(isCurrent? json.temp.temp : json.day.temp, units) + "°";
         cloudinessElement.innerText = json.other.clouds + "%";
         humidityElement.innerText = json.other.humidity + "%";
-        rainElement.innerText = json.other.rain + "%";
+        rainElement.innerText = json.other.rain * 100 + "%";
     }
+
+    celsiusButton.addEventListener("click", () => {
+        units = "METRIC";
+        setWeather(weather);
+    });
+
+    fahrenheitButton.addEventListener("click", () => {
+        units = "IMPERIAL";
+        setWeather(weather);
+    });
 
     function getCoords() {
         if('geolocation' in navigator) {
@@ -130,18 +141,6 @@ window.onload = async () => {
         } else {
             /* geolocation IS NOT available */
             console.warn("GEOLOCATION IS NOT AVAILABLE");
-        }
-    }
-
-    function selectDay(index) {
-        selectedDay = index;
-
-        if (index == 0) {
-            setDayInfo(weather, true);
-            return;
-        } else {
-            const forecast = weather.future[index];
-            setDayInfo(forecast, false);
         }
     }
 };
@@ -156,3 +155,7 @@ function convertTempFromKelvin(temp, units) {
             return temp;
     }
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
